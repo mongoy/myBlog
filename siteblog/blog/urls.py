@@ -1,6 +1,6 @@
 from django.urls import path
-
+from .views import BaseView
 
 urlpatterns = [
-    path('', 'base.html'),
+    path('', BaseView.as_view(), name='base'),
 ]
