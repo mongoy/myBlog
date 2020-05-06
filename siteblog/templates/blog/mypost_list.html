@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2 class="mb-3">Мои сообщения :</h2><hr>
+    {% for mypost in mypost_list %}
+        <div class="card-header">
+            <div class="row">
+                <div class="col-8" ><h6>Название {{ mypost.title }}</h6></div>
+
+            </div>
+        </div>
+
+     {% empty %}
+        <h1>Список пуст!</h1>
+    {% endfor %}
+
+    {% block pagination %}
+    {% endblock pagination%}
+
+{% endblock content %}
