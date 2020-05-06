@@ -1,0 +1,19 @@
+nav{
+    position: absolute;
+    # width: 1448px;
+    height: 102px;
+    # left: -2px;
+    top: 10px;
+
+    background: #DDD000;
+    border: 2px solid #CDCDCD;
+    box-sizing: border-box;
+}
+
+li{
+    height: 102px;
+}
+
+body{
+    height: 1000px;
+}
