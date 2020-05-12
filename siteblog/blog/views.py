@@ -11,7 +11,7 @@ class BlogInfo(TemplateView):
 class PostList(ListView):
     model = MyPost
     queryset = MyPost.objects.all()
-    template_name = 'base.html'
-    # template_name = 'blog/mypost_list.html'
+    # template_name = 'base.html'
+    template_name = 'blog/mypost_list.html'
     paginate_by = 10
 

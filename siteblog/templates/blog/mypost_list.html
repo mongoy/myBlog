@@ -1,13 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    <h2 class="mb-3">Мои сообщения :</h2><hr>
+<div class="blog-content">
+ <div class="container">
     {% for mypost in mypost_list %}
-        <div class="card-header">
+            <hr>
+            <div class="card-header">
             <div class="row">
-                <div class="col-8" ><h6>Название {{ mypost.title }}</h6></div>
-
+                <div class="col" ><h6>Название: {{ mypost.title }}</h6></div>
+            </div>
+            <div class="row">
+                <div class="col xl6"><img src="{{ mypost.img.url }}"></div>
+                <div class="col xl6"><h6>{{ mypost.text }}</h6></div>
+            </div>
+            <div class="row">
+                <div class="col" ><h7>{{ mypost.data_stamp }}</h7></div>
             </div>
         </div>
 
@@ -16,6 +23,16 @@
     {% endfor %}
 
     {% block pagination %}
+      <ul class="pagination">
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <li class="active"><a href="#!">1</a></li>
+        <li class="waves-effect"><a href="#!">2</a></li>
+        <li class="waves-effect"><a href="#!">3</a></li>
+        <li class="waves-effect"><a href="#!">4</a></li>
+        <li class="waves-effect"><a href="#!">5</a></li>
+        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+      </ul>
     {% endblock pagination%}
-
+ </div>
+</div>
 {% endblock content %}
