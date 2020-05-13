@@ -1,38 +1,58 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-<div class="blog-content">
- <div class="container">
-    {% for mypost in mypost_list %}
-            <hr>
-            <div class="card-header">
-            <div class="row">
-                <div class="col" ><h6>Название: {{ mypost.title }}</h6></div>
-            </div>
-            <div class="row">
-                <div class="col xl6"><img src="{{ mypost.img.url }}"></div>
-                <div class="col xl6"><h6>{{ mypost.text }}</h6></div>
-            </div>
-            <div class="row">
-                <div class="col" ><h7>{{ mypost.data_stamp }}</h7></div>
+{% comment %}
+<br>
+<br>
+<br>
+<br>
+<hr>
+<div class="container">
+<div class="row">
+  <div class="col l6">
+    <div class="card hoverable small">
+        <div class="card-time">
+            <p class="data-post">13.05.2020г.</p>
+        </div>
+        <div class="card-image col xl2">
+            <img src="{% static 'images/img.jpg' %}" alt="">
+        </div>
+        <div>
+            <a href="#" class="title-post">Заголовок</a>
+        </div>
+    </div>
+  </div>
+
+</div>
+</div>
+{% endcomment %}
+
+
+<div class="container">
+  <div class="blog-content">
+    <div class="row">
+        {% for mypost in mypost_list %}
+        <div class="col l6">
+            <div class="card hoverable small center-align">
+                <div class="card-time">
+                    <p class="data-post">{{ mypost.data_stamp }}</p>
+                </div>
+                <div class="card-image">
+                    <img id="photo-post" src="{{ mypost.img.url }}">
+                </div>
+                <div>
+                    <a href="#" class="title-post">{{ mypost.title }}</a>
+                </div>
             </div>
         </div>
 
      {% empty %}
         <h1>Список пуст!</h1>
     {% endfor %}
-
-    {% block pagination %}
-      <ul class="pagination">
-        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-        <li class="active"><a href="#!">1</a></li>
-        <li class="waves-effect"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-      </ul>
-    {% endblock pagination%}
- </div>
+    </div>
+  </div>
 </div>
+    {% block pagination %}
+
+    {% endblock pagination%}
 {% endblock content %}
