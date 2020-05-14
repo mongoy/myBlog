@@ -13,33 +13,32 @@
     <title>БЛОГ!!!</title>
 </head>
 <body>
-<header class="top-nav">
-    <nav class="nav-wraper white">
-        <div class="container">
-            <a href="#" class="brand-logo black-text">Мой БЛОГ</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse">
-                <i class="material-icons black-text">menu</i>
-            </a>
-            <ul class="right hide-on-mid-and-down">
-                <li><a class="black-text" href="#">Блог</a></li>
-                <li><a class="black-text" href="#">О себе</a></li>
-                <li><a class="black-text" href="#">Контакты</a></li>
-                <li><a class="black-text" href="#">Вход</a></li>
-            </ul>
-            <!--  Это будет боковым меню на мобильных версиях! -->
-            <ul class="side-nav" id="mobile-demo">
-              <li><a href="sass.html">Блог</a></li>
-              <li><a href="badges.html">О себе</a></li>
-              <li><a href="collapsible.html">Поиск</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <ul class="sidenav" id="mobile-links">
-        <li><a class="black-text" href="#">Блог</a></li>
-        <li><a class="black-text" href="#">О себе</a></li>
-        <li><a class="black-text" href="#">Контакты</a></li>
-    </ul>
+<header class="top-nav">
+    <div class="navbar-fixed">
+        <nav class="nav-wraper white">
+            <div class="container">
+                <a href="#" class="brand-logo black-text">Мой БЛОГ</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a class="black-text" href="#">Блог</a></li>
+                    <li><a class="black-text" href="#">О себе</a></li>
+                    <li><a class="black-text" href="#">Контакты</a></li>
+                    <li class="active"><a class="black-text" href="#">Вход</a></li>
+                </ul>
+                <!-- боковое меню -->
+                <ul id="slide-out" class="sidenav">
+                    <li><a class="black-text" href="#">Блог</a></li>
+                    <li><a class="black-text" href="#">О себе</a></li>
+                    <li><a class="black-text" href="#">Контакты</a></li>
+                </ul>
+
+                <a href="#" data-target="slide-out" class="sidenav-trigger">
+                    <i class="material-icons black-text">menu</i>
+                </a>
+
+            </div>
+        </nav>
+    </div>
 </header>
 
 {% block content %}
@@ -48,23 +47,6 @@
 
 {% comment %}
 
- <div class="navbar-fixed">
-    <nav>
-    <div class="nav-wrapper">
-    <div class="container">
-      <a href="#" class="menu-blog">БЛОГ</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="menu-blog1" href="#">Блог</a></li>
-        <li><a class="menu-blog1" href="#">Новое сообщение</a></li>
-        <li><a class="menu-blog1" href="#">Поиск</a></li>
-      </ul>
-    </div>
-    </div>
-    </nav>
-</div>
-{% block content %}
-
-{% endblock content %}
 {% endcomment %}
 <!-- We need jquery first -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -72,9 +54,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <script>
-    $(document).ready(function(){
-        $('.sidenav').sidenav();
-    })
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
 </script>
 
 </body>

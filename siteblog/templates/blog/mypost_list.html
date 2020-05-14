@@ -1,30 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-{% comment %}
-<br>
-<br>
-<br>
-<br>
-<hr>
-<div class="container">
-<div class="row">
-  <div class="col l6">
-    <div class="card hoverable small">
-        <div class="card-time">
-            <p class="data-post">13.05.2020г.</p>
-        </div>
-        <div class="card-image col xl2">
-            <img src="{% static 'images/img.jpg' %}" alt="">
-        </div>
-        <div>
-            <a href="#" class="title-post">Заголовок</a>
-        </div>
-    </div>
-  </div>
 
-</div>
-</div>
+{% comment %}
+
 {% endcomment %}
 
 
@@ -32,6 +11,40 @@
   <div class="blog-content">
     <div class="row">
         {% for mypost in mypost_list %}
+        {% if mypost.id == 1 %}
+            <br>
+        <div class="row">
+            <div class="col l6">
+                <div class="row">
+                    <div class="col">
+                        <p class="indigo-text accent-3" style="font-family: Museo Cyrl">{{ mypost.title }}</p><br>
+                        <p>{{ mypost.text }}</p><br>
+                        <div class="row">
+                            <div class="col l6">
+                                <p>{{ mypost.data_stamp }}</p>
+                            </div>
+                            <div class="col l6">
+                                <i class="material-icons black-text"> thumb_up </i>
+                                <i class="material-icons black-text"> thumb_down </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l6">
+                <div class="card center-align">
+                <div class="card-image">
+                    <img id="photo-post" src="{{ mypost.img.url }}">
+                </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h1>Другие записи</h1>
+
+        {% else %}
+
         <div class="col l6">
             <div class="card hoverable small center-align">
                 <div class="card-time">
@@ -45,6 +58,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
 
      {% empty %}
         <h1>Список пуст!</h1>
