@@ -17,14 +17,18 @@
             <div class="col l6">
                 <div class="row">
                     <div class="col">
-                        <p class="indigo-text accent-3" style="font-family: Museo Cyrl">{{ mypost.title }}</p><br>
-                        <p>{{ mypost.text }}</p><br>
-                        <div class="row">
+                        <p class="indigo-text accent-3" style="font-family: Museo Cyrl; font-size: 45px; line-height: 52px">{{ mypost.title }}</p><br>
+                        <p class="black-text" style="font-family: Circe Rounded; font-size: 16px; line-height: 22px">{{ mypost.text }}</p><br>
+                        <div class="row"><br>
                             <div class="col l6">
-                                <p>{{ mypost.data_stamp }}</p>
+                                <p class="grey-text" style="font-family: Circe Rounded; font-size: 12px; line-height: 20px">{{ mypost.data_stamp }}</p>
                             </div>
-                            <div class="col l6">
+                            <div class="col l3">
                                 <i class="material-icons black-text"> thumb_up </i>
+
+                            </div>
+                            <div class="col l3">
+
                                 <i class="material-icons black-text"> thumb_down </i>
                             </div>
                         </div>
@@ -41,7 +45,7 @@
 
         </div>
 
-        <h1>Другие записи</h1>
+        <h1 class="indigo-text accent-3" style="font-family: Museo Cyrl; font-size: 36px; line-height: 20px">Другие записи</h1>
 
         {% else %}
 
