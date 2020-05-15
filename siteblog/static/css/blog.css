@@ -37,3 +37,29 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 /*--------------------*/
 
+nav {
+    border: 2px solid #CDCDCD;
+    box-sizing: border-box;
+}
+
+
+
+.title-post {
+    position: absolute;
+    width: 258px;
+    height: 84px;
+    left: 238px;
+    top: 440px;
+
+    font-family: Circe Rounded;
+    font-size: 24px;
+    line-height: 28px;
+    /* or 117% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.416667px;
+
+    color: #315AF2;
+}

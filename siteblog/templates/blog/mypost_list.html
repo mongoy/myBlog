@@ -10,58 +10,48 @@
 <div class="container">
   <div class="blog-content">
     <div class="row">
-        {% for mypost in mypost_list %}
+      {% for mypost in mypost_list %}
         {% if mypost.id == 1 %}
-            <br>
-        <div class="row">
-            <div class="col l6">
-                <div class="row">
-                    <div class="col">
-                        <p class="indigo-text accent-3" style="font-family: Museo Cyrl; font-size: 45px; line-height: 52px">{{ mypost.title }}</p><br>
-                        <p class="black-text" style="font-family: Circe Rounded; font-size: 16px; line-height: 22px">{{ mypost.text }}</p><br>
-                        <div class="row"><br>
-                            <div class="col l6">
-                                <p class="grey-text" style="font-family: Circe Rounded; font-size: 12px; line-height: 20px">{{ mypost.data_stamp }}</p>
-                            </div>
-                            <div class="col l3">
-                                <i class="material-icons black-text"> thumb_up </i>
-
-                            </div>
-                            <div class="col l3">
-
-                                <i class="material-icons black-text"> thumb_down </i>
-                            </div>
-                        </div>
-                    </div>
+           <br>
+           <div class="col l12">
+             <div class="card horizontal hoverable">
+              <div class="card-stacked">
+                <div class="card-content">
+                  <p class="indigo-text accent-3" style="font-family: Museo Cyrl; font-size: 45px; line-height: 52px">{{ mypost.title }}</p><br>
+                  <p class="black-text" style="font-family: Circe Rounded; font-size: 16px; line-height: 22px">{{ mypost.text }}</p><br>
+                  <p class="grey-text" style="font-family: Circe Rounded; font-size: 12px; line-height: 20px">{{ mypost.data_stamp }}</p>
                 </div>
+                <div class="card-action">
+                  <a href="#"><i class="material-icons black-text"> thumb_up </i></a>
+                  <a href="#"><i class="material-icons black-text"> thumb_down </i></a>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="{{ mypost.img.url }}">
+              </div>
             </div>
-            <div class="col l6">
-                <div class="card center-align">
-                <div class="card-image">
-                    <img id="photo-post" src="{{ mypost.img.url }}">
-                </div>
-                </div>
-            </div>
+           </div>
+    </div>
 
-        </div>
-
-        <h1 class="indigo-text accent-3" style="font-family: Museo Cyrl; font-size: 36px; line-height: 20px">Другие записи</h1>
-
+    <h1 class="indigo-text accent-3" style="font-family: Museo Cyrl; font-size: 36px; line-height: 20px">Другие записи</h1>
+    <br>
         {% else %}
-
-        <div class="col l6">
-            <div class="card hoverable small center-align">
-                <div class="card-time">
-                    <p class="data-post">{{ mypost.data_stamp }}</p>
-                </div>
-                <div class="card-image">
-                    <img id="photo-post" src="{{ mypost.img.url }}">
-                </div>
-                <div>
-                    <a href="#" class="title-post">{{ mypost.title }}</a>
-                </div>
+    <div class="row">
+      <div class="col l6">
+        <div class="card hoverable large">
+          <div class="card-time">
+            <p class="grey-text" style="font-family: Circe Rounded; font-size: 12px; line-height: 20px">{{ mypost.data_stamp }}</p>
+          </div>
+          <div class="card-image">
+            <img src="{{ mypost.img.url }}">
+          </div>
+            <div class="card-action center-align">
+              <a href="#" class="indigo-text accent-3" style="font-family: Circe Rounded; font-size: 24px; line-height: 28px; display: flex; letter-spacing: -0.416667px;">{{ mypost.title }}</a>
             </div>
         </div>
+      </div>
+
+
         {% endif %}
 
      {% empty %}

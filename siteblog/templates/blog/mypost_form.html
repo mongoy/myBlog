@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <h2 class="">Новое сообщение: </h2>
+
+      <form method="post">
+
+          <div class="row">
+            <div class="col">
+              {{ form|crispy}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button class=" ">Сохранить</button>
+                <a href="{% url 'post-list' %}" class=" ">Отмена</a>
+            </div>
+          </div>
+
+        {% csrf_token %}
+      </form>
+</div>
+{% endblock %}

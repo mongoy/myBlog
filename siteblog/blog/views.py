@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.contrib import messages
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, TemplateView, ListView
 from .models import MyPost
+from .forms import PostCreatForm
 
 
 class BlogInfo(TemplateView):
@@ -15,3 +17,15 @@ class PostList(ListView):
     template_name = 'blog/mypost_list.html'
     paginate_by = 10
 
+
+class PostCreateView(CreateView):
+    """ """
+    model = MyPost
+    form_class = PostCreatForm
+    success_url = reverse_lazy('post-list')
+
+    def form_valid(self, form):
+        result = super().form_valid(form)
+        messages.success(
+            self.request, '{}'.format(form.instance))
+        return result
